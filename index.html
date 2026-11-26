@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090909">
+<title>DELUXE OFC | Recrutamento ADM</title>
+<style>
+:root{--red:#ed1c24;--bg:#080808;--panel:#121212;--line:#292929;--text:#f5f5f5;--muted:#a7a7a7}
+*{box-sizing:border-box}
+body{margin:0;background:radial-gradient(ellipse at top,#291010 0,#080808 42%);color:var(--text);font-family:Arial,Helvetica,sans-serif;min-height:100vh}
+header{padding:28px 16px 20px;text-align:center;border-bottom:1px solid #2a1717;background:linear-gradient(180deg,#170909aa,transparent)}
+.logo{display:inline-flex;align-items:center;justify-content:center;width:70px;height:70px;border:2px solid var(--red);border-radius:18px;color:#fff;font-weight:900;font-size:24px;transform:rotate(-3deg);box-shadow:0 0 28px #ed1c2430}
+h1{margin:18px 0 6px;font-size:clamp(25px,6vw,38px);letter-spacing:2px;font-weight:900}
+h1 span{color:var(--red)}
+header p{margin:0;color:var(--muted);font-size:14px}
+main{width:min(780px,calc(100% - 24px));margin:24px auto 40px}
+.intro,.section,.endnote{background:linear-gradient(145deg,#151515,#0e0e0e);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:16px;box-shadow:0 12px 35px #0005}
+.intro{border-top:3px solid var(--red)}
+.intro h2{margin:0 0 10px;font-size:20px}
+.intro p{color:#c4c4c4;line-height:1.6;margin:8px 0}
+.notice{font-size:13px;color:#ffb5b5!important;background:#2a1111;padding:10px 12px;border-radius:9px}
+.progress-wrap{margin:18px 0 0}
+.progress-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-bottom:7px}
+.progress{height:6px;background:#292929;border-radius:10px;overflow:hidden}
+.progress div{height:100%;width:0;background:var(--red);transition:width .2s}
+.section h2{font-size:17px;margin:0 0 5px;color:#fff}
+.section .sub{font-size:12px;color:var(--muted);margin:0 0 20px}
+.field{margin:0 0 20px}
+.field:last-child{margin-bottom:0}
+label,.question{display:block;font-size:14px;font-weight:700;line-height:1.45;margin-bottom:9px}
+.num{color:var(--red);margin-right:6px}
+input[type=text],input[type=number],textarea,select{width:100%;background:#090909;color:#fff;border:1px solid #343434;border-radius:10px;padding:13px 12px;font:inherit;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--red);box-shadow:0 0 0 2px #ed1c241c}
+textarea{resize:vertical;min-height:95px}
+select{appearance:auto}
+.options{display:grid;gap:9px}
+.option{display:flex;align-items:center;gap:10px;background:#0b0b0b;border:1px solid #292929;border-radius:9px;padding:11px;font-size:14px;font-weight:400;cursor:pointer}
+.option input{accent-color:var(--red);width:17px;height:17px;flex-shrink:0}
+.required{color:var(--red)}
+.actions{display:grid;gap:10px}
+button{width:100%;border:0;border-radius:12px;padding:15px 16px;font-size:15px;font-weight:800;cursor:pointer}
+.send{background:var(--red);color:white;box-shadow:0 8px 24px #ed1c2430}
+.clear{background:#1a1a1a;color:#ddd;border:1px solid #333}
+button:active{transform:scale(.99)}
+.endnote{text-align:center;color:var(--muted);font-size:12px;line-height:1.5}
+footer{text-align:center;color:#666;font-size:11px;padding:0 12px 25px}
+@media(min-width:620px){.section{padding:25px}.intro{padding:25px}.options.cols{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">DX</div>
+  <h1>DELUXE <span>OFC</span></h1>
+  <p>RECRUTAMENTO OFICIAL • ADM AJUDANTE</p>
+</header>
+<main>
+  <div class="intro">
+    <h2>Formulário de recrutamento</h2>
+    <p>Estamos procurando pessoas comprometidas, responsáveis, ativas e que queiram ajudar nossa guilda a crescer.</p>
+    <p>Responda com sinceridade. A liderança analisará suas respostas antes de tomar uma decisão.</p>
+    <p class="notice">⚠️ Preencher o formulário não garante aprovação. O cargo exige respeito, maturidade e dedicação.</p>
+    <div class="progress-wrap">
+      <div class="progress-meta"><span>Progresso do formulário</span><span id="count">0 respondidas</span></div>
+      <div class="progress"><div id="bar"></div></div>
+    </div>
+  </div>
+
+  <form id="recruitForm">
+    <section class="section">
+      <h2>01 — Informações pessoais</h2><p class="sub">Seus dados dentro do Free Fire e da comunidade.</p>
+      <div class="field"><label><span class="num">01.</span>Nick atual no Free Fire <span class="required">*</span></label><input name="Nick no Free Fire" type="text" required maxlength="80" placeholder="Seu nick"></div>
+      <div class="field"><label><span class="num">02.</span>ID do Free Fire <span class="required">*</span></label><input name="ID do Free Fire" type="text" required inputmode="numeric" maxlength="30" placeholder="Seu ID"></div>
+      <div class="field"><label><span class="num">03.</span>Qual é a sua idade? <span class="required">*</span></label><input name="Idade" type="number" required min="10" max="99" placeholder="Sua idade"></div>
+      <div class="field"><label><span class="num">04.</span>Como gosta de ser chamado?</label><input name="Apelido" type="text" maxlength="60" placeholder="Apelido (opcional)"></div>
+      <div class="field"><label><span class="num">05.</span>Nick no Discord</label><input name="Nick no Discord" type="text" maxlength="80" placeholder="Seu nick no Discord"></div>
+      <div class="field"><label><span class="num">06.</span>ID do Discord</label><input name="ID do Discord" type="text" maxlength="40" placeholder="Seu ID do Discord"></div>
+      <div class="field"><label><span class="num">07.</span>Há quanto tempo está na DELUXE OFC? <span class="required">*</span></label><input name="Tempo na Deluxe" type="text" required maxlength="80" placeholder="Ex.: 2 meses"></div>
+      <div class="field"><label><span class="num">08.</span>Você possui outras contas no Free Fire?</label><div class="options"><label class="option"><input type="radio" name="Outras contas" value="Sim">Sim</label><label class="option"><input type="radio" name="Outras contas" value="Não">Não</label></div></div>
+    </section>
+
+    <section class="section">
+      <h2>02 — Experiência e atividade</h2><p class="sub">Queremos entender sua experiência e disponibilidade.</p>
+      <div class="field"><label><span class="num">09.</span>Já foi ADM, ajudante ou líder de alguma guilda?</label><div class="options"><label class="option"><input type="radio" name="Experiência como ADM" value="Sim">Sim</label><label class="option"><input type="radio" name="Experiência como ADM" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">10.</span>Se já foi ADM, em qual guilda e por quanto tempo?</label><textarea name="Detalhes da experiência" maxlength="1000"></textarea></div>
+      <div class="field"><label><span class="num">11.</span>Quantas horas por dia costuma ficar ativo?</label><select name="Horas ativo"><option value="">Selecione</option><option>Menos de 1 hora</option><option>1 a 2 horas</option><option>3 a 4 horas</option><option>Mais de 4 horas</option></select></div>
+      <div class="field"><label><span class="num">12.</span>Em quais horários costuma estar disponível?</label><input name="Horários disponíveis" type="text" maxlength="100" placeholder="Ex.: tarde e noite"></div>
+      <div class="field"><label><span class="num">13.</span>Consegue acompanhar as mensagens do grupo e Discord diariamente?</label><div class="options"><label class="option"><input type="radio" name="Acompanha mensagens" value="Sim">Sim</label><label class="option"><input type="radio" name="Acompanha mensagens" value="Não">Não</label><label class="option"><input type="radio" name="Acompanha mensagens" value="Às vezes">Às vezes</label></div></div>
+      <div class="field"><label><span class="num">14.</span>Tem disponibilidade para ajudar nos finais de semana?</label><div class="options"><label class="option"><input type="radio" name="Finais de semana" value="Sim">Sim</label><label class="option"><input type="radio" name="Finais de semana" value="Não">Não</label><label class="option"><input type="radio" name="Finais de semana" value="Depende do dia">Depende do dia</label></div></div>
+      <div class="field"><label><span class="num">15.</span>Costuma participar das guerras de guildas?</label><select name="Participação nas guerras"><option value="">Selecione</option><option>Sempre</option><option>Frequentemente</option><option>Às vezes</option><option>Raramente</option></select></div>
+    </section>
+
+    <section class="section">
+      <h2>03 — Responsabilidade como ADM</h2><p class="sub">Responda com sinceridade e explique suas motivações.</p>
+      <div class="field"><label><span class="num">16.</span>Por que quer ser ADM Ajudante da DELUXE OFC? <span class="required">*</span></label><textarea name="Motivo para ser ADM" required maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">17.</span>O que significa ser um ADM responsável para você? <span class="required">*</span></label><textarea name="ADM responsável" required maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">18.</span>Quais seriam suas principais funções como ADM Ajudante? <span class="required">*</span></label><textarea name="Funções como ADM" required maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">19.</span>Está disposto a ajudar sem receber benefícios ou privilégios especiais?</label><div class="options"><label class="option"><input type="radio" name="Ajudar sem privilégios" value="Sim">Sim</label><label class="option"><input type="radio" name="Ajudar sem privilégios" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">20.</span>Entende que o cargo exige responsabilidade e não serve apenas para ter autoridade?</label><div class="options"><label class="option"><input type="radio" name="Entende responsabilidade" value="Sim">Sim</label><label class="option"><input type="radio" name="Entende responsabilidade" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">21.</span>Aceita receber orientações e correções da liderança?</label><div class="options"><label class="option"><input type="radio" name="Aceita orientações" value="Sim">Sim</label><label class="option"><input type="radio" name="Aceita orientações" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">22.</span>Se ficar sem tempo para exercer suas funções, avisaria a liderança?</label><div class="options"><label class="option"><input type="radio" name="Avisaria indisponibilidade" value="Sim">Sim</label><label class="option"><input type="radio" name="Avisaria indisponibilidade" value="Não">Não</label></div></div>
+    </section>
+
+    <section class="section">
+      <h2>04 — Situações e resolução de problemas</h2><p class="sub">Estas respostas são importantes para avaliar seu bom senso.</p>
+      <div class="field"><label><span class="num">23.</span>Dois membros começam a discutir no grupo da guilda. Como resolveria?</label><textarea name="Discussão entre membros" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">24.</span>Um membro que é seu amigo desrespeita as regras. O que faria?</label><textarea name="Amigo quebra regra" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">25.</span>Um membro reclama de uma punição aplicada por você. Como agiria?</label><textarea name="Reclamação de punição" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">26.</span>Você percebe que um ADM está abusando do cargo. Qual seria sua atitude?</label><textarea name="ADM abusando do cargo" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">27.</span>Um membro está inativo há vários dias e não faz pontos semanais. Como lidaria com isso?</label><textarea name="Membro inativo" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">28.</span>Um jogador provoca e desrespeita a DELUXE OFC em outra guilda. O que faria?</label><textarea name="Provocação de outra guilda" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">29.</span>Você aplicou uma punição e depois percebeu que estava errado. O que faria?</label><textarea name="Punição aplicada errada" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">30.</span>Se um membro importante da guilda quebrar uma regra, deve receber a mesma punição que os outros? Explique.</label><textarea name="Regra para membro importante" maxlength="1500"></textarea></div>
+    </section>
+
+    <section class="section">
+      <h2>05 — Conhecimento sobre a DELUXE OFC</h2><p class="sub">Mostre suas ideias para fortalecer a guilda.</p>
+      <div class="field"><label><span class="num">31.</span>Qual é o principal objetivo da DELUXE OFC?</label><textarea name="Objetivo da Deluxe" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">32.</span>O que diferencia a DELUXE OFC de outras guildas?</label><textarea name="Diferencial da Deluxe" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">33.</span>O que faria para aumentar a atividade dos membros?</label><textarea name="Aumentar atividade" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">34.</span>Como ajudaria a guilda a conseguir mais pontos na guerra de guildas?</label><textarea name="Mais pontos na guerra" maxlength="1500"></textarea></div>
+      <div class="field"><label><span class="num">35.</span>Está disposto a ajudar no recrutamento de novos jogadores?</label><div class="options"><label class="option"><input type="radio" name="Ajudar no recrutamento" value="Sim">Sim</label><label class="option"><input type="radio" name="Ajudar no recrutamento" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">36.</span>Tem alguma ideia para melhorar a organização da guilda?</label><textarea name="Ideias para organização" maxlength="1500"></textarea></div>
+    </section>
+
+    <section class="section">
+      <h2>06 — Compromisso final</h2><p class="sub">Confirme seu compromisso com a equipe.</p>
+      <div class="field"><label><span class="num">37.</span>Aceita seguir todas as regras da DELUXE OFC?</label><div class="options"><label class="option"><input type="radio" name="Seguir regras" value="Sim">Sim</label><label class="option"><input type="radio" name="Seguir regras" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">38.</span>Aceita que o cargo pode ser retirado caso não cumpra suas funções?</label><div class="options"><label class="option"><input type="radio" name="Cargo pode ser retirado" value="Sim">Sim</label><label class="option"><input type="radio" name="Cargo pode ser retirado" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">39.</span>Promete não usar o cargo para ameaçar, humilhar ou favorecer membros?</label><div class="options"><label class="option"><input type="radio" name="Compromisso de respeito" value="Sim">Sim</label><label class="option"><input type="radio" name="Compromisso de respeito" value="Não">Não</label></div></div>
+      <div class="field"><label><span class="num">40.</span>Por que a liderança deveria escolher você e não outro candidato? <span class="required">*</span></label><textarea name="Por que escolher você" required maxlength="2000"></textarea></div>
+      <div class="field"><label><span class="num">41.</span>Deixe uma mensagem final para a liderança da DELUXE OFC.</label><textarea name="Mensagem final" maxlength="1500"></textarea></div>
+    </section>
+
+    <div class="endnote">Ao tocar em enviar, suas respostas serão organizadas em uma mensagem para o WhatsApp da liderança. Revise os dados antes de enviar.</div>
+    <div class="actions">
+      <button class="send" type="submit">ENVIAR RESPOSTAS PELO WHATSAPP</button>
+      <button class="clear" type="reset">Limpar formulário</button>
+    </div>
+  </form>
+</main>
+<footer>DELUXE OFC • FORMULÁRIO OFICIAL DE RECRUTAMENTO</footer>
+<script>
+const form=document.getElementById('recruitForm'), count=document.getElementById('count'), bar=document.getElementById('bar');
+function updateProgress(){
+  const fields=[...form.querySelectorAll('input:not([type=radio]),textarea,select')];
+  const names=[...new Set([...form.querySelectorAll('input[type=radio]')].map(x=>x.name))];
+  let total=fields.length+names.length, filled=fields.filter(x=>x.value.trim()).length;
+  names.forEach(n=>{if(form.querySelector('input[name="'+CSS.escape(n)+'"]:checked'))filled++});
+  count.textContent=filled+' de '+total+' respondidas';
+  bar.style.width=(total?filled/total*100:0)+'%';
+}
+form.addEventListener('input',updateProgress);
+form.addEventListener('change',updateProgress);
+form.addEventListener('reset',()=>setTimeout(updateProgress,0));
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!form.reportValidity())return;
+  const data=new FormData(form), lines=['🔴 *DELUXE OFC — RECRUTAMENTO ADM AJUDANTE*','', '*NOVO CANDIDATO*',''];
+  const done=new Set();
+  for(const [key,value] of data.entries()){
+    if(done.has(key))continue;
+    done.add(key);
+    const vals=data.getAll(key).filter(Boolean);
+    lines.push('*'+key+':* '+(vals.join(', ')||'Não informado'),'');
+  }
+  lines.push('— Enviado pelo formulário DELUXE OFC');
+  const msg=encodeURIComponent(lines.join('\n'));
+  const phone='554991467726';
+  window.location.href='https://wa.me/'+phone+'?text='+msg;
+});
+updateProgress();
+</script>
+</body>
+</html>
